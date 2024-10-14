@@ -5,10 +5,7 @@ module.exports = {
     fontFamily:{
       'sans': ['Roboto', 'sans']
     },
-    extend: {
-      backgroundImage: {
-        "home": "url('/assets/bg.png')"
-      },
+    
       keyframes: {
         fundomechendo: {
           '0%': { backgroundPosition: '0% 0%' },
@@ -18,8 +15,8 @@ module.exports = {
       },
       animation: {
         fundomechendo: 'fundomechendo 100s infinite ease-in-out'
-      }
-    },
+      },
+    
   },
   plugins: [],
 }
