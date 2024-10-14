@@ -1986,7 +1986,7 @@ video {
   background-color: rgb(24 24 27 / var(--tw-bg-opacity));
 }
 
-.bg-\[url\(\'\/assets\/bg\.png\'\)\] {
+.bg-home {
   background-image: url('/assets/bg.png');
 }
 
@@ -2041,6 +2041,10 @@ video {
 .bg-clip-text {
   -webkit-background-clip: text;
           background-clip: text;
+}
+
+.bg-center {
+  background-position: center;
 }
 
 .bg-repeat {
