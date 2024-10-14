@@ -25,8 +25,8 @@ O projeto é composto pelos seguintes arquivos principais:
 - [Font Awesome](https://fontawesome.com/) - Para ícones.
 - [Toastify](https://github.com/mercadolibre/toastify-js) - Para notificações de sucesso.
 
-## Como Usar
+## Como Ver
 
-1. Clone este repositório para o seu computador:
+1. Cole este link no seu Google:
    ```bash
-   git clone https://github.com/seuusuario/seurepositorio.git
+   https://site-cardapio-herosburger2.vercel.app/
