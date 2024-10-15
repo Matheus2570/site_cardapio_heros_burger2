@@ -62,6 +62,19 @@ function addToCart(name, price) {
         });
     }
 
+    // Notificação bonita com Toastify
+    Toastify({
+        text: `${name} foi adicionado ao carrinho!`,
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Previne que feche ao clicar ou passar o mouse
+        style: {
+            background: "#22c55e", // Verde para sucesso
+        },
+    }).showToast();
+
     updateCartModal();
 }
 
@@ -124,19 +137,46 @@ cartItemsContainer.addEventListener("click", function (event) {
 
 
 function removeItemCart(name) {
-    const index = cart.findIndex(item => item.name === name)
+    const index = cart.findIndex(item => item.name === name);
 
     if (index !== -1) {
         const item = cart[index];
 
         if (item.quantity > 1) {
-            item.quantity -= 1
-            updateCartModal()
-            return
+            item.quantity -= 1;
+            updateCartModal();
+
+            // Notificação para remoção parcial
+            Toastify({
+                text: `Uma unidade de ${name} foi removida do carrinho!`,
+                duration: 3000,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true,
+                style: {
+                    background: "#f97316", // Laranja para uma remoção parcial
+                },
+            }).showToast();
+
+            return;
         }
 
-        cart.splice(index, 1)
-        updateCartModal()
+        cart.splice(index, 1);
+        updateCartModal();
+
+        // Notificação para remoção completa
+        Toastify({
+            text: `${name} foi removido completamente do carrinho!`,
+            duration: 3000,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true,
+            style: {
+                background: "#ef4444", // Vermelho para remoção total
+            },
+        }).showToast();
     }
 }
 
