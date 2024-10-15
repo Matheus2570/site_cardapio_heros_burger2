@@ -216,17 +216,18 @@ checkoutBtn.addEventListener("click", function () {
         return;
     }
 
-
-    
+    // Calcular o total do carrinho
+    const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
     // Enviar pedido pro WhatsApp
     const cartItems = cart.map((item) => {
         return `
-${item.name} Quantidade: ${item.quantity} Preço: ${item.price}
+${item.name} Quantidade: ${item.quantity} Preço: R$${item.price.toFixed(2)}
 `;
     }).join("");
 
     const message = encodeURIComponent(`Pedido: ${cartItems} 
+Total: R$${total.toFixed(2)} 
 Endereço: ${addressInput.value}`);
     const phone = "19971438515";
 
@@ -234,9 +235,8 @@ Endereço: ${addressInput.value}`);
     window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 
     cart.length = 0
-    updateCartModal()
+    updateCartModal();
 });
-
 
 // Verificar a hora e menipular o card horario
 function checkRestaurantOpen() {
