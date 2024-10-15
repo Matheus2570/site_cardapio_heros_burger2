@@ -222,12 +222,12 @@ checkoutBtn.addEventListener("click", function () {
     // Enviar pedido pro WhatsApp
     const cartItems = cart.map((item) => {
         return `
-        ${item.name} Quantidade: ${item.quantity} Preço: ${item.price}
-        `;
+${item.name} Quantidade: ${item.quantity} Preço: ${item.price}
+`;
     }).join("");
 
     const message = encodeURIComponent(`Pedido: ${cartItems} 
-        Endereço: ${addressInput.value}`);
+Endereço: ${addressInput.value}`);
     const phone = "19971438515";
 
     // Abrir WhatsApp Web
