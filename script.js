@@ -176,6 +176,9 @@ checkoutBtn.addEventListener("click", function () {
         return;
     }
 
+
+    
+
     // Enviar pedido pro WhatsApp
     const cartItems = cart.map((item) => {
         return `
@@ -187,7 +190,7 @@ checkoutBtn.addEventListener("click", function () {
     const phone = "19971438515";
 
     // Abrir WhatsApp Web
-    window.open(`https://web.whatsapp.com/send?phone=${phone}&text=${message}`, "_blank");
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 
     cart.length = 0
     updateCartModal()
