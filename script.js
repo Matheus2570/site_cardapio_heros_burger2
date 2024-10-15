@@ -237,7 +237,7 @@ Endereço: ${addressInput.value}`);
     cart.length = 0
     updateCartModal();
 });
-
+ 
 // Verificar a hora e menipular o card horario
 function checkRestaurantOpen() {
     const data = new Date()
