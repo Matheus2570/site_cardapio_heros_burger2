@@ -73,6 +73,8 @@ function updateCartModal() {
     cartItemsContainer.innerHTML = ""
     let total = 0
 
+    // Adiciona classes para altura máxima e rolagem
+    cartItemsContainer.classList.add("max-h-64", "overflow-y-auto")
 
     cart.forEach(item => {
         const cartItemElement = document.createElement("div")
@@ -81,31 +83,29 @@ function updateCartModal() {
 
         cartItemElement.innerHTML = `
         <div>
-<div class="flex items-center justify-between">
-<div>
-<p class="font-medium"> ${item.name}</p>
-<p class="font-medium mt-2">Quantidade: (${item.quantity})</p>
-<p class="mt-2">Preço: R$${item.price.toFixed(2)}</p>
-</div>
-
-
-<button class="remove-from-cart-btn hover:scale-110 duration-200" data-name="${item.name}">
-Remover
-</buttton>
-
-</div>      
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="font-medium"> ${item.name}</p>
+                    <p class="font-medium mt-2">Quantidade: (${item.quantity})</p>
+                    <p class="mt-2">Preço: R$${item.price.toFixed(2)}</p>
+                </div>
+                <button class="remove-from-cart-btn hover:scale-110 duration-200" data-name="${item.name}">
+                    Remover
+                </button>
+            </div>      
+        </div>
         `
         total += item.price * item.quantity
 
-
         cartItemsContainer.appendChild(cartItemElement)
     })
+
     cartTotal.textContent = total.toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL"
     })
-    cartCounter.innerHTML = cart.length;
 
+    cartCounter.innerHTML = cart.length;
 }
 
 // Função para remover o item do carrinho
@@ -194,7 +194,7 @@ checkoutBtn.addEventListener("click", function () {
 function checkRestaurantOpen() {
     const data = new Date()
     const hora = data.getHours()
-    return hora >= 18 && hora < 22; //true = restaurante esta aberto
+    return hora >= 9 && hora < 22; //true = restaurante esta aberto
 
 }
 
