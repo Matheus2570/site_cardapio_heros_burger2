@@ -49,21 +49,20 @@ menu.addEventListener("click", function (event) {
 
 // Função para adicionar no carrinho
 function addToCart(name, price) {
-
-    const existingItem = cart.find(item => item.name === name)
+    const existingItem = cart.find(item => item.name === name);
 
     if (existingItem) {
-        // Se o item ja existe aumenta apenas a quantidade + 1
-        existingItem.quantity += 1
+        // Se o item já existe, aumenta apenas a quantidade + 1
+        existingItem.quantity += 1;
     } else {
         cart.push({
             name,
             price,
             quantity: 1,
-        })
+        });
     }
-    updateCartModal()
 
+    updateCartModal();
 }
 
 
@@ -89,7 +88,7 @@ function updateCartModal() {
                     <p class="font-medium mt-2">Quantidade: (${item.quantity})</p>
                     <p class="mt-2">Preço: R$${item.price.toFixed(2)}</p>
                 </div>
-                <button class="remove-from-cart-btn hover:scale-110 duration-200" data-name="${item.name}">
+                <button class="remove-from-cart-btn" data-name="${item.name}">
                     Remover
                 </button>
             </div>      
@@ -116,8 +115,13 @@ cartItemsContainer.addEventListener("click", function (event) {
 
 
         removeItemCart(name)
+
     }
+    
+
+    
 })
+
 
 function removeItemCart(name) {
     const index = cart.findIndex(item => item.name === name)
@@ -210,6 +214,9 @@ else {
     spanItem.classList.add("bg-red-500")
 
 }
+
+
+
 
 
 
