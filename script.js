@@ -227,7 +227,8 @@ ${item.name} Quantidade: ${item.quantity} Preço: R$${item.price.toFixed(2)}
     }).join("");
 
     const message = encodeURIComponent(`Pedido: ${cartItems} 
-Total: R$${total.toFixed(2)} 
+*Total: R$${total.toFixed(2)}* 
+
 Endereço: ${addressInput.value}`);
     const phone = "19971438515";
 
