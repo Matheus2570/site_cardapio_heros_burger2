@@ -29,4 +29,4 @@ O projeto é composto pelos seguintes arquivos principais:
 
 1. Cole este link no seu Google:
    ```bash
-   https://site-cardapio-herosburger2.vercel.app/
+   https://site-cardapio-heros-burger2.vercel.app/
