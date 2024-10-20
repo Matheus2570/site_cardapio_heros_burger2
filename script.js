@@ -7,12 +7,13 @@ const checkoutBtn = document.getElementById("checkout-btn");
 const closeModalBtn = document.getElementById("close-modal-btn");
 const cartCounter = document.getElementById("cart-count");
 const addressInput = document.getElementById("address");
+const tableInput = document.getElementById("table-number");
 const addressWarn = document.getElementById("address-warn");
+const tableWarn = document.getElementById("table-warn");
 
+let cart = [];
 
-let cart = []
-
-// Abir o modal do carrinho
+// Abrir o modal do carrinho
 cartBtn.addEventListener("click", function () {
     cartModal.style.display = "flex";
 });
@@ -20,32 +21,26 @@ cartBtn.addEventListener("click", function () {
 // Fechar modal quando clicar fora
 cartModal.addEventListener("click", function () {
     if (event.target === cartModal) {
-        cartModal.style.display = "none"
+        cartModal.style.display = "none";
     }
-})
+});
 
 // Fechar o modal ao clicar em fechar
 closeModalBtn.addEventListener("click", function () {
-    cartModal.style.display = "none"
-})
+    cartModal.style.display = "none";
+});
 
 // Selecionando os items que eu quero
 menu.addEventListener("click", function (event) {
-
     let parentButton = event.target.closest(".add-to-cart-btn");
 
     if (parentButton) {
         const name = parentButton.getAttribute("data-name");
-        const price = parseFloat(parentButton.getAttribute("data-price"))
+        const price = parseFloat(parentButton.getAttribute("data-price"));
 
-
-
-        addToCart(name, price)
+        addToCart(name, price);
     }
-
 });
-
-
 
 // Função para adicionar no carrinho
 function addToCart(name, price) {
@@ -67,31 +62,28 @@ function addToCart(name, price) {
         text: `${name} foi adicionado ao carrinho!`,
         duration: 3000,
         close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        stopOnFocus: true, // Previne que feche ao clicar ou passar o mouse
+        gravity: "top", 
+        position: "right", 
+        stopOnFocus: true, 
         style: {
-            background: "#22c55e", // Verde para sucesso
+            background: "#22c55e", 
         },
     }).showToast();
 
     updateCartModal();
 }
 
-
-
 // Atualiza o carrinho
 function updateCartModal() {
-    cartItemsContainer.innerHTML = ""
-    let total = 0
+    cartItemsContainer.innerHTML = "";
+    let total = 0;
 
-    // Adiciona classes para altura máxima e rolagem
-    cartItemsContainer.classList.add("max-h-64", "overflow-y-auto")
+    cartItemsContainer.classList.add("max-h-64", "overflow-y-auto");
 
     cart.forEach(item => {
-        const cartItemElement = document.createElement("div")
+        const cartItemElement = document.createElement("div");
 
-        cartItemElement.classList.add("flex", "justify-between", "mb-4", "flex-col")
+        cartItemElement.classList.add("flex", "justify-between", "mb-4", "flex-col");
 
         cartItemElement.innerHTML = `
         <div>
@@ -106,16 +98,16 @@ function updateCartModal() {
                 </button>
             </div>      
         </div>
-        `
-        total += item.price * item.quantity
+        `;
+        total += item.price * item.quantity;
 
-        cartItemsContainer.appendChild(cartItemElement)
-    })
+        cartItemsContainer.appendChild(cartItemElement);
+    });
 
     cartTotal.textContent = total.toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL"
-    })
+    });
 
     cartCounter.innerHTML = cart.length;
 }
@@ -123,18 +115,11 @@ function updateCartModal() {
 // Função para remover o item do carrinho
 cartItemsContainer.addEventListener("click", function (event) {
     if (event.target.classList.contains("remove-from-cart-btn")) {
-        const name = event.target.getAttribute("data-name")
-        console.log(name)
+        const name = event.target.getAttribute("data-name");
 
-
-        removeItemCart(name)
-
+        removeItemCart(name);
     }
-    
-
-    
-})
-
+});
 
 function removeItemCart(name) {
     const index = cart.findIndex(item => item.name === name);
@@ -151,11 +136,11 @@ function removeItemCart(name) {
                 text: `Uma unidade de ${name} foi removida do carrinho!`,
                 duration: 3000,
                 close: true,
-                gravity: "top", // `top` or `bottom`
-                position: "right", // `left`, `center` or `right`
+                gravity: "top", 
+                position: "right", 
                 stopOnFocus: true,
                 style: {
-                    background: "#f97316", // Laranja para uma remoção parcial
+                    background: "#f97316", 
                 },
             }).showToast();
 
@@ -170,101 +155,100 @@ function removeItemCart(name) {
             text: `${name} foi removido completamente do carrinho!`,
             duration: 3000,
             close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
+            gravity: "top", 
+            position: "right", 
             stopOnFocus: true,
             style: {
-                background: "#ef4444", // Vermelho para remoção total
+                background: "#ef4444", 
             },
         }).showToast();
     }
 }
 
-
+// Validar preenchimento dos campos
 addressInput.addEventListener("input", function (event) {
-    let inputValue = event.target.value;
-
-    if (inputValue !== "") {
-        addressInput.classList.remove("border-red-600")
-        addressWarn.classList.add("hidden")
-
+    if (event.target.value !== "") {
+        addressInput.classList.remove("border-red-600");
+        addressWarn.classList.add("hidden");
+        tableInput.value = "";
+        tableInput.classList.remove("border-red-600");
+        tableWarn.classList.add("hidden");
     }
+});
 
-})
+tableInput.addEventListener("input", function (event) {
+    if (event.target.value !== "") {
+        tableInput.classList.remove("border-red-600");
+        tableWarn.classList.add("hidden");
+        addressInput.value = "";
+        addressInput.classList.remove("border-red-600");
+        addressWarn.classList.add("hidden");
+    }
+});
 
 // Finalizar pedido
 checkoutBtn.addEventListener("click", function () {
     const isOpen = checkRestaurantOpen();
     if (!isOpen) {
-      Toastify({
-            text: "RESTURANTE FECHADO NO MOMENTO",
+        Toastify({
+            text: "RESTAURANTE FECHADO NO MOMENTO",
             duration: 3000,
             close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "left", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
+            gravity: "top", 
+            position: "left", 
+            stopOnFocus: true, 
             style: {
-              background: "#ef4444",
+                background: "#ef4444",
             },
-      }).showToast()
+        }).showToast();
         return;
     }
+
     if (cart.length === 0) return;
-    if (addressInput.value === "") {
+
+    if (addressInput.value === "" && tableInput.value === "") {
         addressWarn.classList.remove("hidden");
         addressInput.classList.add("border-red-600");
+        tableWarn.classList.remove("hidden");
+        tableInput.classList.add("border-red-600");
         return;
     }
 
-    // Calcular o total do carrinho
     const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
-    // Enviar pedido pro WhatsApp
+    const deliveryDetails = addressInput.value !== "" 
+        ? `Endereço: ${addressInput.value}` 
+        : `Mesa: ${tableInput.value}`;
+
     const cartItems = cart.map((item) => {
-        return `
-${item.name} Quantidade: ${item.quantity} Preço: R$${item.price.toFixed(2)}
-`;
+        return `${item.name} Quantidade: ${item.quantity} Preço: R$${item.price.toFixed(2)}\n`;
     }).join("");
 
     const message = encodeURIComponent(`Pedido: ${cartItems} 
-*Total: R$${total.toFixed(2)}* 
+    *Total: R$${total.toFixed(2)}* 
+    ${deliveryDetails}`);
 
-Endereço: ${addressInput.value}`);
     const phone = "19971438515";
-
-    // Abrir WhatsApp Web
     window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 
-    cart.length = 0
+    cart.length = 0;
     updateCartModal();
 });
- 
-// Verificar a hora e menipular o card horario
-function checkRestaurantOpen() {
-    const data = new Date()
-    const hora = data.getHours()
-    return hora >= 7 && hora < 22; //true = restaurante esta aberto
 
+// Verificar a hora e manipular o card horário
+function checkRestaurantOpen() {
+    const data = new Date();
+    const hora = data.getHours();
+    return hora >= 7 && hora < 22; 
 }
 
-const spanItem = document.getElementById("date-span")
-const isOpen = checkRestaurantOpen()
+const spanItem = document.getElementById("date-span");
+const isOpen = checkRestaurantOpen();
 
 if (isOpen) {
-    spanItem.classList.remove("bg-red-500")
-    spanItem.classList.add("bg-green-600")
+    spanItem.classList.remove("bg-red-500");
+    spanItem.classList.add("bg-green-600");
+} else {
+    spanItem.classList.remove("bg-green-600");
+    spanItem.classList.add("bg-red-500");
 }
-else {
-    spanItem.classList.remove("bg-green-600")
-    spanItem.classList.add("bg-red-500")
-
-}
-
-
-
-
-
-
-
-
-
