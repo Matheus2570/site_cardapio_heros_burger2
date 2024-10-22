@@ -224,9 +224,10 @@ checkoutBtn.addEventListener("click", function () {
         return `${item.name} Quantidade: ${item.quantity} Preço: R$${item.price.toFixed(2)}\n`;
     }).join("");
 
-    const message = encodeURIComponent(`Pedido: ${cartItems} 
-    *Total: R$${total.toFixed(2)}* 
-    ${deliveryDetails}`);
+    const message = encodeURIComponent(`Pedido: 
+${cartItems} 
+*Total: R$${total.toFixed(2)}* 
+${deliveryDetails}`);
 
     const phone = "19971438515";
     window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
