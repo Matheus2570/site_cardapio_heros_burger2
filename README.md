@@ -25,7 +25,7 @@ O projeto é composto pelos seguintes arquivos principais:
 - [Font Awesome](https://fontawesome.com/) - Para ícones.
 - [Toastify](https://github.com/mercadolibre/toastify-js) - Para notificações de sucesso.
 
-## Como Ver
+## Como Vizualizar
 
 1. Cole este link no seu Google:
    ```bash
