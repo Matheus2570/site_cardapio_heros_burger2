@@ -13,10 +13,10 @@ O projeto é composto pelos seguintes arquivos principais:
 
 ## Funcionalidades
 
-- **Visualização dos Produtos**: Cada item do cardápio é apresentado com uma imagem, descrição e preço.
-- **Adição ao Carrinho**: Os clientes podem adicionar itens ao carrinho de compras, visualizando o total em tempo real.
-- **Modal do Carrinho**: Um modal permite que os clientes vejam o conteúdo do carrinho e finalizem o pedido.
-- **Design Responsivo**: O layout é adaptável, garantindo que o cardápio seja visualmente agradável em diferentes tamanhos de tela, incluindo dispositivos móveis.
+✅- **Visualização dos Produtos**: Cada item do cardápio é apresentado com uma imagem, descrição e preço.
+✅- **Adição ao Carrinho**: Os clientes podem adicionar itens ao carrinho de compras, visualizando o total em tempo real.
+✅- **Modal do Carrinho**: Um modal permite que os clientes vejam o conteúdo do carrinho e finalizem o pedido.
+✅- **Design Responsivo**: O layout é adaptável, garantindo que o cardápio seja visualmente agradável em diferentes tamanhos de tela, incluindo dispositivos móveis.
 
 ## Tecnologias Utilizadas
 
@@ -25,7 +25,7 @@ O projeto é composto pelos seguintes arquivos principais:
 - [Font Awesome](https://fontawesome.com/) - Para ícones.
 - [Toastify](https://github.com/mercadolibre/toastify-js) - Para notificações de sucesso.
 
-## Como Vizualizar
+## Como Visualizar 📌
 
 1. Cole este link no seu Google:
    ```bash
