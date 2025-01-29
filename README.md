@@ -11,12 +11,12 @@ O projeto é composto pelos seguintes arquivos principais:
 - `script.js`: O arquivo de script para funcionalidades interativas, como o carrinho de compras.
 - Imagens dos produtos e da logo que são utilizadas para embelezar o site.
 
-## Funcionalidades
+## Funcionalidades✅
 
-✅- **Visualização dos Produtos**: Cada item do cardápio é apresentado com uma imagem, descrição e preço.
-✅- **Adição ao Carrinho**: Os clientes podem adicionar itens ao carrinho de compras, visualizando o total em tempo real.
-✅- **Modal do Carrinho**: Um modal permite que os clientes vejam o conteúdo do carrinho e finalizem o pedido.
-✅- **Design Responsivo**: O layout é adaptável, garantindo que o cardápio seja visualmente agradável em diferentes tamanhos de tela, incluindo dispositivos móveis.
+- **Visualização dos Produtos**: Cada item do cardápio é apresentado com uma imagem, descrição e preço.
+- **Adição ao Carrinho**: Os clientes podem adicionar itens ao carrinho de compras, visualizando o total em tempo real.
+- **Modal do Carrinho**: Um modal permite que os clientes vejam o conteúdo do carrinho e finalizem o pedido.
+- **Design Responsivo**: O layout é adaptável, garantindo que o cardápio seja visualmente agradável em diferentes tamanhos de tela, incluindo dispositivos móveis.
 
 ## Tecnologias Utilizadas
 
