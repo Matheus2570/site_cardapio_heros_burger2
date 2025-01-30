@@ -24,7 +24,7 @@ O projeto é composto pelos seguintes arquivos principais:
 - JavaScript
 - [Tailwind CSS](https://tailwindcss.com/) - Framework CSS para estilização.
 - [Font Awesome](https://fontawesome.com/) - Para ícones.
-- [Toastify](https://github.com/mercadolibre/toastify-js) - Para notificações de sucesso.
+- Toastify - Para notificações de sucesso.
 
 ## Como Visualizar 📌
 
