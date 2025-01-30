@@ -21,6 +21,7 @@ O projeto é composto pelos seguintes arquivos principais:
 ## Tecnologias Utilizadas
 
 - HTML5
+- JavaScript
 - [Tailwind CSS](https://tailwindcss.com/) - Framework CSS para estilização.
 - [Font Awesome](https://fontawesome.com/) - Para ícones.
 - [Toastify](https://github.com/mercadolibre/toastify-js) - Para notificações de sucesso.
