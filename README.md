@@ -2,9 +2,9 @@
 
 Este projeto é um cardápio online para a hamburgueria Heros Burger, oferecendo uma variedade de lanches e bebidas. O site foi construído usando HTML e Tailwind CSS, proporcionando uma interface moderna e responsiva para os clientes.
 
-## Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
-O projeto é composto pelos seguintes arquivos principais:
+O projeto é composto pelos seguintes arquivos principais:  📂
 
 - `index.html`: A página inicial do cardápio, onde os lanches e bebidas são exibidos.
 - `style/output.css`: O arquivo de estilo gerado pelo Tailwind CSS, que define a aparência e o layout do cardápio.
@@ -18,7 +18,7 @@ O projeto é composto pelos seguintes arquivos principais:
 - **Modal do Carrinho**: Um modal permite que os clientes vejam o conteúdo do carrinho e finalizem o pedido.
 - **Design Responsivo**: O layout é adaptável, garantindo que o cardápio seja visualmente agradável em diferentes tamanhos de tela, incluindo dispositivos móveis.
 
-## Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
 - HTML5
 - JavaScript
