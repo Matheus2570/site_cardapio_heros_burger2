@@ -240,7 +240,7 @@ ${deliveryDetails}`);
 function checkRestaurantOpen() {
     const data = new Date();
     const hora = data.getHours();
-    return hora >= 7 && hora < 22; 
+    return hora >= 6 && hora < 22; 
 }
 
 const spanItem = document.getElementById("date-span");
